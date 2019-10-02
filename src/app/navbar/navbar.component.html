@@ -1,0 +1,14 @@
+<div class="w3-bar w3-black">
+    <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Home</a>
+    <div class="w3-dropdown-hover w3-mobile">
+        <button class="w3-button">Generations<i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+            <div *ngFor="let gen of generationsList; let i = index" class="w3-bar-item w3-button w3-mobile">
+                <div (click)="getRegion(i)" id="genDiv" class="w3-bar-item">{{gen.name}}</div>
+            </div>
+            <div class="w3-bar-item w3-button w3-mobile">
+                <div (click)="getRegion(-1)" id="genDiv2" class="w3-bar-item">All</div>
+            </div>
+        </div>
+    </div>
+</div>
