@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonComponent,
     NavbarComponent
   ],
   imports: [
