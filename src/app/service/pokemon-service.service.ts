@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pokedex } from "pokedex-promise-v2";
+import Pokedex from "pokedex-promise-v2";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonServiceService {
 
-  constructor(private httpClient: HttpClient, public pokedex: Pokedex) {
-    this.pokedex = new Pokedex();
+  pokedex: Pokedex = new Pokedex();
+  baseAPIEndpoint: String = "https://pokeapi.co/api/v2/"
+
+  constructor(private httpClient: HttpClient) { }
+
+  getAll(offset: number, limit: number) {
+    return this.httpClient.get(`${this.baseAPIEndpoint}pokemon/?limit=${limit}&offset=${offset}`);
   }
 
-  getRegion() {
-    return this.pokedex.getGenerationsList().then(function(response) {
-      console.log(response);
-    })
+  getGeneration(genID: number): Observable<any> {
+    return this.httpClient.get(`${this.baseAPIEndpoint}generation/${genID}`);
   }
 
   getGenerations(): Observable<any> {
-    return this.httpClient.get('https://pokeapi.co/api/v2/generation/');
+    return this.httpClient.get(`${this.baseAPIEndpoint}generation/`);
   }
-
-
 }
