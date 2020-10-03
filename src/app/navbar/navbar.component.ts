@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {PokemonServiceService} from '../service/pokemon-service.service';
-declare var require: any;
 
 @Component({
   selector: 'app-navbar',
